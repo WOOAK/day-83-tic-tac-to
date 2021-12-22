@@ -84,23 +84,31 @@ def displayBoard():
     print(board)
 
 end_game = False
+turns = 0
 while end_game == False:
     location = firstPlayer()
     player = 'X'
     player1_win = checkBoard(player,location)
     displayBoard()
+    turns += 1
     if player1_win:
         print("First player win")
+        end_game=True
+        break
+    if turns == 9:
+        print("The game is a tie")
         end_game=True
         break
     location = secondPlayer()
     player = 'O'
     player2_win = checkBoard(player, location)
     displayBoard()
+    turns += 1
     if player2_win:
         print("Second player win")
         end_game= True
         break
+
 
 
 
